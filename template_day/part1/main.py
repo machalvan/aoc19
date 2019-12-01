@@ -2,9 +2,9 @@ from utils import read_input, write_output, check_result
 
 
 def calc(lines):
-    result = 0
+    result = ''
     for word in lines.split():
-        result += int(int(word) / 3 - 2)
+        print(word)  # Code here
     return result
 
 
