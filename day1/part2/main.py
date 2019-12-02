@@ -11,12 +11,8 @@ def calc(lines):
     return result
 
 
-def main():
+if __name__ == '__main__':
     lines = read_input()
     result = str(calc(lines))
     write_output(result)
     check_result(result)
-
-
-if __name__ == '__main__':
-    main()
