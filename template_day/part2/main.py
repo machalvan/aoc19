@@ -1,10 +1,14 @@
 from utils import read_input, write_output, check_result
+import re
 
 
 def calc(lines):
     result = ''
-    for word in lines.split():
-        print(word)  # Code here
+    parser = re.compile("-?\d+")
+    values = [int(x) for line in lines for x in parser.findall(line.strip())]
+
+    for value in values:
+        print(value)  # Code here
     return result
 
 

@@ -1,6 +1,6 @@
 def read_input():
     input_file = open("../../input.txt", "r")
-    lines = input_file.read()
+    lines = input_file.readlines()
     input_file.close()
     return lines
 
