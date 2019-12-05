@@ -1,10 +1,13 @@
 from utils import read_input, write_output, check_result
+import re
 
 
 def calc(lines):
+    parser = re.compile("-?\d+")
+
     for noun in range(0, 100):
         for verb in range(0, 100):
-            words = lines.split(',')
+            words = [int(x) for line in lines for x in parser.findall(line.strip())]
             pointer = 0
 
             words[1] = noun

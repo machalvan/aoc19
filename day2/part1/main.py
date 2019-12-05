@@ -1,47 +1,49 @@
 from utils import read_input, write_output, check_result
+import re
 
 
 def calc(lines):
-    counter = 0
-    words = lines.split(',')
+    pointer = 0
+    parser = re.compile("-?\d+")
+    words = [int(x) for line in lines for x in parser.findall(line.strip())]
 
     words[1] = 12
     words[2] = 2
 
-    while counter < len(words):
-        opcode = int(words[counter])
+    while pointer < len(words):
+        opcode = int(words[pointer])
         if opcode == 1:
-            counter += 1
-            index = int(words[counter])
+            pointer += 1
+            index = int(words[pointer])
             value1 = int(words[index])
 
-            counter += 1
-            index = int(words[counter])
+            pointer += 1
+            index = int(words[pointer])
             value2 = int(words[index])
 
             sum = value1 + value2
-            counter += 1
-            index = int(words[counter])
+            pointer += 1
+            index = int(words[pointer])
             words[index] = sum
 
         elif opcode == 2:
-            counter += 1
-            index = int(words[counter])
+            pointer += 1
+            index = int(words[pointer])
             value1 = int(words[index])
 
-            counter += 1
-            index = int(words[counter])
+            pointer += 1
+            index = int(words[pointer])
             value2 = int(words[index])
 
             sum = value1 * value2
-            counter += 1
-            index = int(words[counter])
+            pointer += 1
+            index = int(words[pointer])
             words[index] = sum
 
         elif opcode == 99:
             break
 
-        counter += 1
+        pointer += 1
 
     result = words[0]
     return result
